@@ -9,14 +9,19 @@ $eventsNavHref = $eventsNavHref ?? ($rootPath . 'index.php#proximos-eventos');
 $navItems = [
     ['id' => 'inicio', 'label' => 'Início', 'href' => $rootPath . 'index.php'],
     ['id' => 'sobre', 'label' => 'Sobre', 'href' => $rootPath . 'index.php#sobre'],
-    ['id' => 'eventos', 'label' => 'Eventos', 'href' => $eventsNavHref],
-    ['id' => 'contato', 'label' => 'Contato', 'href' => $rootPath . 'index.php#footer'],
+    ['id' => 'eventos', 'label' => 'Calendário', 'href' => $eventsNavHref],
 ];
 ?>
 <header class="header">
   <div class="container header-inner">
     <a href="<?= e($rootPath . 'index.php'); ?>" class="logo" aria-label="Eventura">
-      <span class="logo-mark"></span>
+      <img
+        src="<?= e($rootPath . 'logo1.png'); ?>"
+        alt=""
+        class="logo-image"
+        width="42"
+        height="39"
+      >
       <span>EVENTURA</span>
     </a>
 

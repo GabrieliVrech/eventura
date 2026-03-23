@@ -15,7 +15,13 @@ $rootPath = $rootPath ?? '';
     <div class="footer-brand">
       <div class="footer-content">
         <a href="<?= e($rootPath . 'index.php'); ?>" class="logo" aria-label="Eventura">
-                <span class="logo-mark"></span>
+                <img
+                    src="<?= e($rootPath . 'logo1.png'); ?>"
+                    alt=""
+                    class="logo-image"
+                    width="42"
+                    height="39"
+                  >
                 <span>EVENTURA</span>
         </a>
 
@@ -38,9 +44,8 @@ $rootPath = $rootPath ?? '';
           <ul class="footer-list">
             <li><a href="<?= e($rootPath . 'index.php'); ?>">Início</a></li>
             <li><a href="<?= e($rootPath . 'index.php#sobre'); ?>">Sobre</a></li>
-            <li><a href="<?= e($rootPath . 'index.php#proximos-eventos'); ?>">Eventos</a></li>
             <li><a href="<?= e($rootPath . 'eventos/evento.php'); ?>">Calendário</a></li>
-            <li><a href="<?= e($rootPath . 'index.php#criar-evento'); ?>">Contato</a></li>
+            <li><a href="<?= e($rootPath . 'index.php#criar-evento'); ?>">Criar evento</a></li>
           </ul>
         </div>
 

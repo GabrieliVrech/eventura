@@ -9,22 +9,10 @@
 
   <div class="container home-hero-content">
     <div class="home-hero-copy">
-      <span class="hero-eyebrow">Planejamento simples, resultado profissional</span>
-      <h1><?= e($hero['titulo']); ?></h1>
+      <span class="hero-eyebrow">Texto exemplo....</span>
+      <h1 class="title-home"><?= e($hero['titulo']); ?></h1>
       <p><?= e($hero['descricao']); ?></p>
-
-      <form class="hero-form" action="#criar-evento" method="get">
-        <?php foreach ($hero['campos'] as $campo): ?>
-          <input
-            class="hero-input"
-            type="text"
-            name="<?= e($campo['nome']); ?>"
-            placeholder="<?= e($campo['placeholder']); ?>"
-          >
-        <?php endforeach; ?>
-
-        <button class="btn-primary hero-submit" type="submit"><?= e($hero['botao']); ?></button>
-      </form>
+      <button class="btn-primary" type="button"><?= e($hero['botao']); ?></button>
     </div>
 
     <div class="home-hero-visual" aria-hidden="true">
@@ -56,9 +44,6 @@
           <span class="visual-pin-center"></span>
         </div>
 
-        <div class="visual-badge visual-badge-left">Agenda</div>
-        <div class="visual-badge visual-badge-right">Convites</div>
-        <div class="visual-badge visual-badge-bottom">Check-in</div>
       </div>
     </div>
   </div>

@@ -1,23 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.querySelector('[data-carousel]');
+  const eventsBrowser = document.querySelector('[data-events-browser]');
 
-  if (!carousel) {
+  if (!eventsBrowser) {
     return;
   }
 
-  const track = carousel.querySelector('[data-carousel-track]');
-  const cards = Array.from(carousel.querySelectorAll('[data-carousel-card]'));
-  const prevButton = carousel.querySelector('[data-carousel-prev]');
-  const nextButton = carousel.querySelector('[data-carousel-next]');
-  const dotsContainer = carousel.querySelector('[data-carousel-dots]');
+  const cards = Array.from(eventsBrowser.querySelectorAll('[data-events-card]'));
+  const prevButton = eventsBrowser.querySelector('[data-events-prev]');
+  const nextButton = eventsBrowser.querySelector('[data-events-next]');
+  const dotsContainer = eventsBrowser.querySelector('[data-events-dots]');
 
-  if (!track || !prevButton || !nextButton || !dotsContainer || cards.length === 0) {
+  if (!prevButton || !nextButton || !dotsContainer || cards.length === 0) {
     return;
   }
 
-  let currentIndex = 0;
+  let currentPage = 0;
 
-  function getVisibleCards() {
+  function getCardsPerRow() {
     if (window.innerWidth <= 700) {
       return 1;
     }
@@ -29,33 +28,38 @@ document.addEventListener('DOMContentLoaded', () => {
     return 3;
   }
 
-  function getStepWidth() {
-    const firstCard = cards[0];
-    const styles = window.getComputedStyle(track);
-    const gap = Number.parseFloat(styles.columnGap || styles.gap || '0');
-
-    return firstCard.getBoundingClientRect().width + gap;
+  function getCardsPerPage() {
+    return getCardsPerRow() * 2;
   }
 
-  function getMaxIndex() {
-    return Math.max(0, cards.length - getVisibleCards());
+  function getTotalPages() {
+    return Math.max(1, Math.ceil(cards.length / getCardsPerPage()));
+  }
+
+  function updateCards() {
+    const cardsPerPage = getCardsPerPage();
+    const start = currentPage * cardsPerPage;
+    const end = start + cardsPerPage;
+
+    cards.forEach((card, index) => {
+      card.hidden = index < start || index >= end;
+    });
   }
 
   function renderDots() {
-    const totalDots = getMaxIndex() + 1;
+    const totalDots = getTotalPages();
 
     dotsContainer.innerHTML = '';
-    dotsContainer.hidden = totalDots <= 1;
 
     for (let index = 0; index < totalDots; index += 1) {
       const dot = document.createElement('button');
 
       dot.type = 'button';
-      dot.className = 'carousel-dot';
-      dot.setAttribute('aria-label', `Ir para o grupo ${index + 1} de eventos`);
+      dot.className = 'events-pagination-dot';
+      dot.setAttribute('aria-label', `Ir para a página ${index + 1} de eventos`);
       dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
+        currentPage = index;
+        updatePagination();
       });
 
       dotsContainer.appendChild(dot);
@@ -66,51 +70,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = Array.from(dotsContainer.children);
 
     dots.forEach((dot, index) => {
-      dot.classList.toggle('is-active', index === currentIndex);
+      const isActive = index === currentPage;
+
+      dot.classList.toggle('is-active', isActive);
+
+      if (isActive) {
+        dot.setAttribute('aria-current', 'page');
+        return;
+      }
+
+      dot.removeAttribute('aria-current');
     });
   }
 
   function updateControls() {
-    const maxIndex = getMaxIndex();
+    const lastPage = getTotalPages() - 1;
 
-    prevButton.disabled = currentIndex === 0;
-    nextButton.disabled = currentIndex >= maxIndex;
+    prevButton.disabled = currentPage === 0;
+    nextButton.disabled = currentPage >= lastPage;
   }
 
-  function updateCarousel() {
-    const maxIndex = getMaxIndex();
+  function updatePagination() {
+    const lastPage = getTotalPages() - 1;
 
-    currentIndex = Math.min(currentIndex, maxIndex);
-    track.style.transform = `translateX(-${getStepWidth() * currentIndex}px)`;
-
-    updateControls();
+    currentPage = Math.min(currentPage, lastPage);
+    updateCards();
     updateDots();
+    updateControls();
   }
 
-  function syncCarousel() {
+  function syncPagination() {
     renderDots();
-    updateCarousel();
+    updatePagination();
   }
 
   prevButton.addEventListener('click', () => {
-    if (currentIndex === 0) {
+    if (currentPage === 0) {
       return;
     }
 
-    currentIndex -= 1;
-    updateCarousel();
+    currentPage -= 1;
+    updatePagination();
   });
 
   nextButton.addEventListener('click', () => {
-    if (currentIndex >= getMaxIndex()) {
+    if (currentPage >= getTotalPages() - 1) {
       return;
     }
 
-    currentIndex += 1;
-    updateCarousel();
+    currentPage += 1;
+    updatePagination();
   });
 
-  window.addEventListener('resize', syncCarousel);
+  window.addEventListener('resize', syncPagination);
 
-  syncCarousel();
+  syncPagination();
 });

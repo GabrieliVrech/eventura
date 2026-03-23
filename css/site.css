@@ -95,6 +95,13 @@ textarea {
   letter-spacing: 0.08em;
 }
 
+.logo-image {
+  width: 42px;
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
 .logo-mark {
   width: 42px;
   height: 42px;
@@ -180,9 +187,7 @@ textarea {
 .btn-primary:focus-visible,
 .nav-link:focus-visible,
 .logo:focus-visible,
-.footer a:focus-visible,
-.carousel-control:focus-visible,
-.carousel-dot:focus-visible {
+.footer a:focus-visible {
   outline: 3px solid rgba(255, 255, 255, 0.65);
   outline-offset: 3px;
 }
