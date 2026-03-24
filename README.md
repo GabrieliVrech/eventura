@@ -39,7 +39,7 @@ Os dados atuais das páginas são estáticos e vêm de arquivos PHP que retornam
 Na raiz do projeto:
 
 ```bash
-php -S localhost:8800
+php -S localhost:8800  (ou uma porta livre)
 ```
 
 Depois abra no navegador:
