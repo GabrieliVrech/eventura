@@ -10,14 +10,14 @@ declare(strict_types=1);
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css">
-  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="<?= e($rootPath . 'shared/css/site.css'); ?>">
+  <link rel="stylesheet" href="<?= e($rootPath . 'home/css/home.css'); ?>">
 </head>
 <body class="page-home">
-  <?php require __DIR__ . '/../partials/home/hero.php'; ?>
-  <?php require __DIR__ . '/../partials/home/main.php'; ?>
-  <?php require __DIR__ . '/../partials/shared/footer.php'; ?>
+  <?php require __DIR__ . '/partials/hero.php'; ?>
+  <?php require __DIR__ . '/partials/main.php'; ?>
+  <?php require __DIR__ . '/../shared/partials/footer.php'; ?>
 
-  <script src="js/home.js"></script>
+  <script src="<?= e($rootPath . 'home/js/home.js'); ?>"></script>
 </body>
 </html>

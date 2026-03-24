@@ -5,7 +5,7 @@
     </svg>
   </div>
 
-  <?php require __DIR__ . '/../../partials/shared/header.php'; ?>
+  <?php require __DIR__ . '/../../shared/partials/header.php'; ?>
 
   <div class="container event-hero-content">
     <div class="event-hero-copy">
@@ -15,7 +15,7 @@
       <div class="event-hero-meta">
         <div class="event-meta-item"><span class="event-meta-icon">🗓</span> <span><?= e($evento['data']); ?> • <?= e($evento['hora']); ?></span></div>
         <div class="event-meta-item"><span class="event-meta-icon">📍</span> <span><?= e($evento['local']); ?></span></div>
-        <div class="event-meta-item"><span class="event-meta-icon">🎟</span> <span>A partir de <?= format_currency_brl((float) $evento['preco']); ?></span></div>
+        <div class="event-meta-item"><span class="event-meta-icon">🎟</span> <span>A partir de <?= format_currency_eur((float) $evento['preco']); ?></span></div>
       </div>
 
       <div class="event-hero-actions">
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <<div class="hero-wave-bottom" aria-hidden="true">
+  <div class="hero-wave-bottom" aria-hidden="true">
     <svg viewBox="0 0 1440 170" preserveAspectRatio="none">
       <path fill="#f6f8f9" d="M0,96L60,90.7C120,85,240,75,360,69.3C480,64,600,64,720,74.7C840,85,960,107,1080,101.3C1200,96,1320,64,1380,48L1440,32L1440,170L1380,170C1320,170,1200,170,1080,170C960,170,840,170,720,170C600,170,480,170,360,170C240,170,120,170,60,170L0,170Z"></path>
     </svg>

@@ -5,7 +5,7 @@
     </svg>
   </div>
 
-  <?php require __DIR__ . '/../shared/header.php'; ?>
+  <?php require __DIR__ . '/../../shared/partials/header.php'; ?>
 
   <div class="container home-hero-content">
     <div class="home-hero-copy">

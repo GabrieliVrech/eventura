@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let quantity = Number.parseInt(document.body.dataset.quantidadeInicial ?? '1', 10);
 
   function formatCurrency(value) {
-    return value.toLocaleString('pt-BR', {
+    return value.toLocaleString('pt-PT', {
       style: 'currency',
-      currency: 'BRL'
+      currency: 'EUR'
     });
   }
 

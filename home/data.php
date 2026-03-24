@@ -15,7 +15,7 @@ return [
             'ano' => '2026',
             'local' => 'Centro Cultural Cidade Viva',
             'preco' => 50.00,
-            'link' => 'eventos/evento.php',
+            'link' => 'evento/index.php',
         ],
         [
             'titulo' => 'Noite de Jazz no Parque',
@@ -24,7 +24,7 @@ return [
             'ano' => '2026',
             'local' => 'Parque das Flores',
             'preco' => 40.00,
-            'link' => 'eventos/evento.php',
+            'link' => 'evento/index.php',
         ],
         [
             'titulo' => 'Feira de Gastronomia',
@@ -33,7 +33,7 @@ return [
             'ano' => '2026',
             'local' => 'Praça Central',
             'preco' => 15.00,
-            'link' => 'eventos/evento.php',
+            'link' => 'evento/index.php',
         ],
         [
             'titulo' => 'Conferência Criativa',
@@ -42,7 +42,7 @@ return [
             'ano' => '2026',
             'local' => 'Centro de Convenções Aurora',
             'preco' => 89.00,
-            'link' => 'eventos/evento.php',
+            'link' => 'evento/index.php',
         ],
         [
             'titulo' => 'Encontro Tech & Design',
@@ -51,7 +51,7 @@ return [
             'ano' => '2026',
             'local' => 'Hub Inovação Paulista',
             'preco' => 65.00,
-            'link' => 'eventos/evento.php',
+            'link' => 'evento/index.php',
         ],
     ],
     'criacao' => [

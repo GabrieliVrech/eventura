@@ -45,7 +45,7 @@
                 <div class="ticket-icon">🎟</div>
                 <div>
                   <strong>Ingresso</strong>
-                  <span>A partir de <?= format_currency_brl((float) $evento['preco']); ?></span>
+                  <span>A partir de <?= format_currency_eur((float) $evento['preco']); ?></span>
                 </div>
               </div>
             </div>
@@ -61,17 +61,11 @@
 
             <div class="total-row">
               <span>Total:</span>
-              <strong id="totalValue"><?= format_currency_brl((float) $totalInicial); ?></strong>
+              <strong id="totalValue"><?= format_currency_eur((float) $totalInicial); ?></strong>
             </div>
 
-            <button class="btn-primary btn-block" type="button">Comprar Ingressos</button>
+            <button class="btn-primary btn-block" type="button">Reservar Ingressos</button>
 
-            <div class="payment-list" aria-label="Métodos de pagamento">
-              <div class="payment-badge">VISA</div>
-              <div class="payment-badge">Master</div>
-              <div class="payment-badge">Pix</div>
-              <div class="payment-badge">PayPal</div>
-            </div>
           </div>
         </aside>
       </div>

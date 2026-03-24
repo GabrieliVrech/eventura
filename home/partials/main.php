@@ -30,11 +30,11 @@
                     </div>
                     <div class="event-card-line">
                       <span class="event-card-icon" aria-hidden="true">🎟</span>
-                      <span>A partir de <?= format_currency_brl((float) $item['preco']); ?></span>
+                      <span>A partir de <?= format_currency_eur((float) $item['preco']); ?></span>
                     </div>
                   </div>
 
-                  <a class="btn-primary event-card-link" href="<?= e($item['link']); ?>">Saiba Mais</a>
+                  <a class="btn-primary event-card-link" href="<?= e($rootPath . $item['link']); ?>">Saiba Mais</a>
                 </div>
               </article>
             <?php endforeach; ?>

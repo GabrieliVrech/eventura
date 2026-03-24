@@ -16,7 +16,7 @@ $navItems = [
   <div class="container header-inner">
     <a href="<?= e($rootPath . 'index.php'); ?>" class="logo" aria-label="Eventura">
       <img
-        src="<?= e($rootPath . 'logo1.png'); ?>"
+        src="<?= e($rootPath . 'images/logo1.png'); ?>"
         alt=""
         class="logo-image"
         width="42"

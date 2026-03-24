@@ -6,9 +6,9 @@ function e(mixed $value): string
     return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 }
 
-function format_currency_brl(float $value): string
+function format_currency_eur(float $value): string
 {
-    return 'R$' . number_format($value, 2, ',', '.');
+    return number_format($value, 2, ',', '.') . ' €';
 }
 
 function avatar_initial(string $name): string
